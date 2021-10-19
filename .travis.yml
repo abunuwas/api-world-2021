@@ -1,0 +1,17 @@
+language: python
+python: '3.9'
+node_js: 10.16.3
+before_install:
+- npm install dredd@14.0.0 --global
+- pipenv install --dev
+before_script:
+- uvicorn todo.server:server &
+script:
+- dredd oas.yaml http://127.0.0.1:8000 --hookfiles=./hooks.py --language=python
+- schemathesis run oas.yaml --base-url=http://localhost:8000 --stateful=links
+deploy:
+  provider: heroku
+  api_key:
+    secure: hJF7klCXma1gcMYAHWXCmkTKHXXI89e7ooq/2mFR1W7EP4Nr7bB+13FiWPkszIM4YXl8qsI6sWTmgdQI9iGhyRBL0hou6Xa7JB27ug87zi1GlwvmK27/WQ/PzPPdYt4XJNYib9S3QKoNnALVwZB0EHbYTWMGT123ZCdOYkBXBdOaiYCzw7BDnl2jZMP48zfv2U3R8F/lAxjtuQtVXs5U7iJGAVFg2eGEZeOPrBBhBpAFV/4pc/DGuTftokZcdvlyHLd0REPFUaaBcJew+3ywTgZqSbaR0S3IJiiqa3Mx3D19WPth0R4LySzpoPUALV2zyQI6CpXkgCNoTncK1fmAQ8ZroMZGO2hKN4HI9AAnBOh/QD/NXEEwQyXM4wJGs3mZfgKHfOhlp695SiAcagLAC6KpTX8EUHoR9fs0zbSsJwk0qhHqYPpjlBGfywEqtc8GBWoGfZumEbck34lh7B2qtEpXxIN6wAKAoIAcSav7Z73hJO61mYurUgqN4jcSDhSh/v8bCcbuNrXMi2U6huk5w3mJsPbPTcd8uhwgVtJMo/f69nlPK9L1/uQ+ItAfDERc614aOMFWOWFp8IyvOulyuyXLgISrPJf7a6BQkN1yzsSjzV2rc4V3fwwVbXgO0DcpqDHDP+gpMJxsB0bYXn0ljKsqHiB49IKur1/66qC+ckM=
+  app:
+    master: very-simple-todo-api
