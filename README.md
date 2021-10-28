@@ -11,13 +11,13 @@
 
 #### Author of [Microservice APIs in Python](https://www.manning.com/books/microservice-apis-in-python)
 
-- 35% discount code for the book: **ctwasc21**
+- 35% discount code for the book: **ctwapiworld21**
 - Download two chapters of the book for free from this [link](https://www.microapis.io/resources/microservice-apis-in-python).
 
 ## How to work with this repo
 
 This repo provides examples for my talk at the **API Specifications Conference 2021**.
-The title of my talk is "Leveraging API documentation to deliver reliable API integrations".
+The title of my talk is "Pure APIs: Leveraging API documentation to deliver reliable API integrations".
 The code in this repo includes the implementation of a simple TODO REST API in Python, 
 using the popular FastAPI framework. The specification for the API is included under 
 the [oas.yaml](oas.yaml) file.
