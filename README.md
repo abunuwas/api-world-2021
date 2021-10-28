@@ -16,7 +16,7 @@
 
 ## How to work with this repo
 
-This repo provides examples for my talk at the **API Specifications Conference 2021**.
+This repo provides examples for my talk at the **API World Conference 2021**.
 The title of my talk is "Pure APIs: Leveraging API documentation to deliver reliable API integrations".
 The code in this repo includes the implementation of a simple TODO REST API in Python, 
 using the popular FastAPI framework. The specification for the API is included under 
